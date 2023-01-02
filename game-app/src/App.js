@@ -18,7 +18,9 @@ function App() {
     
     let Strings = Array.from(state);
     // console.log(Strings);
-    Strings[ind] = playerX? 'X' : '0';
+    if( Strings[ind] === "" ){
+      Strings[ind] = playerX? 'X' : '0';
+    }
     // setState(Strings);
     dispatch(changeGameState(Strings));
     updatePlayerX(!playerX);
