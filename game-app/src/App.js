@@ -1,29 +1,37 @@
 import './App.css';
 import Square from './components/Square';
 import React, {useEffect, useState} from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { changeGameState } from './redux/gameStateSlice';
 
 const initialState = ["","","","","","","","","" ];
 
 function App() {
 
-  const [ state, setState ]  = useState( initialState );
+  // const [ state, setState ]  = useState( initialState );
   const [ playerX, updatePlayerX ]  = useState( false );
 
+  const state = useSelector((state)=>state.game.list)
+  const dispatch = useDispatch();
+  
   const onsqrClicked = (ind)=>{
     
     let Strings = Array.from(state);
-    console.log(Strings);
+    // console.log(Strings);
     Strings[ind] = playerX? 'X' : '0';
-    setState(Strings);
+    // setState(Strings);
+    dispatch(changeGameState(Strings));
     updatePlayerX(!playerX);
-
+    
   }
+  console.log(state, 'Normal');
 
   useEffect(()=>{
     const winner =   findWinner();
     if(winner){
       alert(`${winner} is the winner`);
-      setState(initialState);
+      // setState(initialState);
+      dispatch(changeGameState(initialState));
     }
   }, [state])
 
@@ -67,7 +75,7 @@ function App() {
       <Square className='border-right' state={state[7]} onClick={()=>onsqrClicked(7)} />
       <Square  state={state[8]} onClick={()=>onsqrClicked(8)} />
       </div>
-      <button className='button-style' onClick={()=>setState(initialState)} > New game </button>
+      <button className='button-style' onClick={()=>dispatch(changeGameState(initialState))} > New game </button>
     </div>
   );
 }
