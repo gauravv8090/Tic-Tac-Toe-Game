@@ -72,6 +72,16 @@
     font-weight: bolder;
     padding: 10px;
   } 
+  .border-right-bottom{
+    border-right: 10px solid rgb(226, 159, 159);
+    border-bottom: 10px solid rgb(226, 159, 159);
+  }
+  .border-bottom{
+    border-bottom: 10px solid rgb(226, 159, 159);
+  }
+  .border-right{
+    border-right: 10px solid rgb(226, 159, 159);
+  }
 
 }
 
@@ -84,6 +94,16 @@
     color: rgb(226, 209, 134);
     font-weight: bolder;
     padding: 10px;
+  }
+  .border-right-bottom{
+    border-right: 5px solid rgb(226, 159, 159);
+    border-bottom: 5px solid rgb(226, 159, 159);
+  }
+  .border-bottom{
+    border-bottom: 5px solid rgb(226, 159, 159);
+  }
+  .border-right{
+    border-right: 5px solid rgb(226, 159, 159);
   }
   
 .button-style{
